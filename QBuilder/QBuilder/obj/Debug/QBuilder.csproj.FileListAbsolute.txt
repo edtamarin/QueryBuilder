@@ -1,0 +1,13 @@
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.Form1.resources
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.Properties.Resources.resources
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.csproj.GenerateResource.Cache
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\QBuilder.exe.config
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\QBuilder.exe
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\QBuilder.pdb
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\MySql.Data.dll
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.exe
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.pdb
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.DBStorage.resources
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\Newtonsoft.Json.xml
