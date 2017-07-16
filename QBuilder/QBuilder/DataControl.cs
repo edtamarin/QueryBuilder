@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,6 @@ namespace QBuilder
         public static string HostData { get; set; }
         public static string BaseData { get; set; }
         public static string UserData { get; set; }
+        public static ArrayList QueryData { get; set; }
     }
 }

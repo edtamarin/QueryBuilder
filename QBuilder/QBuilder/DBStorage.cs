@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QBuilder
-{ // TODO: Implement username storage
+{
     public partial class DBStorage : Form
     {
         public DBStorage()
@@ -27,6 +27,7 @@ namespace QBuilder
             var settings = new CustomSettings((int)OpType.Read);
             DataControl.HostData = settings.GetDatabaseHost(dbListBox.SelectedIndex);
             DataControl.BaseData = dbListBox.SelectedItem.ToString();
+            DataControl.UserData = settings.GetUsername(dbListBox.SelectedIndex);
             this.Close();
 
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -18,6 +19,8 @@ namespace QBuilder
 { // TODO: query builder
     public partial class Form1 : Form
     {
+        private MySqlConnection _conn;
+        private ArrayList _qResult = new ArrayList();
         public Form1()
         {
             InitializeComponent();
@@ -35,26 +38,10 @@ namespace QBuilder
             {
                 try
                 {
-                    MySqlConnection conn = new MySqlConnection(
+                    _conn = new MySqlConnection(
                         $"Server={serverTB.Text};Database={databaseTB.Text};" +
                         $"Uid={userTB.Text};Pwd={passTB.Text}");
                     connLabel.Text = "Connection established";
-                    MySqlCommand command = new MySqlCommand("SELECT firstName FROM employees", conn);
-
-                    command.Connection.Open();
-                    MySqlDataReader myReader = command.ExecuteReader();
-                    try
-                    {
-                        while (myReader.Read())
-                        {
-                            Debug.WriteLine(myReader.GetString(0));
-                        }
-                    }
-                    finally
-                    {
-                        myReader.Close();
-                        conn.Close();
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -65,7 +52,7 @@ namespace QBuilder
 
         private void disconButton_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
 
         private void saveLoadButton_Click(object sender, EventArgs e)
@@ -73,13 +60,13 @@ namespace QBuilder
             DBStorage dbs = new DBStorage();
             dbs.FormClosed += DBStorage_Closed;
             dbs.Show();
-            Debug.Write("1");
         }
 
         private void DBStorage_Closed(object sender, FormClosedEventArgs e)
         {
             databaseTB.Text = DataControl.BaseData;
             serverTB.Text = DataControl.HostData;
+            userTB.Text = DataControl.UserData;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -94,10 +81,60 @@ namespace QBuilder
                 var settings = new CustomSettings((int) OpType.Write);
                 settings.SetDatabaseName($"{databaseTB.Text}");
                 settings.SetDatabaseHost($"{serverTB.Text}");
+                settings.SetUsername($"{userTB.Text}");
                 settings.Save();
             }
             MessageBox.Show(this, "Saved successfully!", "Save operation", MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+        }
+
+        private void selExecuteButton_Click(object sender, EventArgs e)
+        {
+            if (selQueryTB.Text.Equals(""))
+            {
+                MessageBox.Show(this, "The query field is empty", "Content Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                _qResult.Clear();
+                MySqlCommand selCommand = new MySqlCommand(selQueryTB.Text,_conn);
+                selCommand.Connection.Open();
+                MySqlDataReader myReader = selCommand.ExecuteReader();
+                try
+                {
+                    if (myReader.HasRows)
+                    {
+                        while (myReader.Read())
+                        {
+                            string row = "";
+                            for (int i = 0; i < myReader.FieldCount; i++)
+                            {
+                                if (myReader.GetValue(i) != DBNull.Value)
+                                {
+                                    row = row + Convert.ToString(myReader.GetValue(i));
+                                }
+                                else
+                                {
+                                    row = row + "NULL";
+                                }
+                                row = row + " ";
+                            }
+                            _qResult.Add(row);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "The table is empty or does not exist!", "No result",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                finally
+                {
+                    myReader.Close();
+                    DataControl.QueryData = _qResult;
+                }
+            }
         }
     }
 }

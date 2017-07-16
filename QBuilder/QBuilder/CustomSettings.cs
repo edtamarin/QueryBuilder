@@ -74,6 +74,16 @@ namespace QBuilder
             _settings[_index].DatabaseHost = dbHost;
         }
 
+        public string GetUsername(int index)
+        {
+            return _settings[index].Username;
+        }
+
+        public void SetUsername(string uName)
+        {
+            _settings[_index].Username = uName;
+        }
+
         public void Save()
         {
             File.WriteAllText(_path, JsonConvert.SerializeObject(_settings, Formatting.Indented)+"\n");
@@ -85,5 +95,6 @@ namespace QBuilder
         public int Index { get; set; }
         public string DatabaseName { get; set; }
         public string DatabaseHost { get; set; }
+        public string Username { get; set; }
     }
 }
