@@ -11,3 +11,4 @@ C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\
 C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.DBStorage.resources
 C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Egor Tamarin\Documents\GitHub\QueryBuilder\QBuilder\QBuilder\obj\Debug\QBuilder.QResult.resources

@@ -34,18 +34,27 @@
             // 
             // queryData
             // 
+            this.queryData.AllowUserToAddRows = false;
+            this.queryData.AllowUserToDeleteRows = false;
+            this.queryData.AllowUserToResizeRows = false;
+            this.queryData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.queryData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.queryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.queryData.Location = new System.Drawing.Point(12, 12);
             this.queryData.Name = "queryData";
+            this.queryData.ReadOnly = true;
             this.queryData.RowTemplate.Height = 40;
-            this.queryData.Size = new System.Drawing.Size(1143, 576);
+            this.queryData.Size = new System.Drawing.Size(1109, 576);
             this.queryData.TabIndex = 0;
+            this.queryData.SizeChanged += new System.EventHandler(this.queryData_SizeChanged);
             // 
             // QResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1167, 600);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1157, 605);
             this.Controls.Add(this.queryData);
             this.Name = "QResult";
             this.Text = "Query result";

@@ -13,7 +13,7 @@ namespace QBuilder
     public partial class DBStorage : Form
     {
         public DBStorage()
-        {
+        { // initialize the form and put items into the listbox
             InitializeComponent();
             var settings = new CustomSettings((int)OpType.Read);
             for (int i = 0; i < settings.GetSize(); i++)
@@ -23,7 +23,7 @@ namespace QBuilder
         }
 
         private void loadButton_Click(object sender, EventArgs e)
-        {
+        { // loads the selected DB data into the main form TODO: error handling
             var settings = new CustomSettings((int)OpType.Read);
             DataControl.HostData = settings.GetDatabaseHost(dbListBox.SelectedIndex);
             DataControl.BaseData = dbListBox.SelectedItem.ToString();
@@ -33,13 +33,15 @@ namespace QBuilder
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
-        {
+        { // closes  the form, duh.
             this.Close();
         }
 
-        private void DBStorage_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
+        private void delButton_Click(object sender, EventArgs e)
+        { // deletes the entry from the list
+            var settings = new CustomSettings((int)OpType.Read);
+            settings.Delete(dbListBox.SelectedIndex);
+            dbListBox.Items.RemoveAt(dbListBox.SelectedIndex);
         }
     }
 }
